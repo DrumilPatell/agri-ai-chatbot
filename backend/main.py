@@ -32,7 +32,6 @@ app.add_middleware(
 # Health check endpoint
 @app.get("/")
 async def root():
-    print("✅ Root endpoint hit")
     return {"message": "Agri chatbot API is running."}
 
 
