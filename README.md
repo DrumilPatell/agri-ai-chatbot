@@ -1,5 +1,7 @@
 # 🌾 Agri AI Chatbot
 
+Created By Drumil Patel🔥
+
 A smart farming chatbot that helps predict crop yield and answer common agriculture queries using React, FastAPI, and Gemini AI.
 
 ## ✨ Features
