@@ -21,7 +21,7 @@ function CropPredictor() {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/chat`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
