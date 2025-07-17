@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Chat bubble tails */
+.bubble {
+  position: relative;
+  padding: 0.75rem 1rem;
+  border-radius: 1.5rem;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+.bubble.bot::after {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: white;
+}
+
+.bubble.user::after {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #dcfce7; /* Light green */
+}
+
