@@ -34,7 +34,7 @@ function ChatBox() {
     setShowSuggestions(false); // Hide suggestions after first interaction
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/chat`, {
+      const response = await fetch("https://agri-ai-backend-q7md.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
