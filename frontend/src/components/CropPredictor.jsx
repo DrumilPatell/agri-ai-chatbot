@@ -21,7 +21,7 @@ function CropPredictor() {
     }
 
     try {
-      const res = await fetch("https://agri-ai-backend-q7md.onrender.com/predict", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

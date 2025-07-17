@@ -23,11 +23,15 @@ app = FastAPI()
 # Allow frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_origins=[
+        "http://localhost:5173",  # for local dev
+        "https://agri-ai-chatbot.vercel.app",  # ✅ for production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Health check endpoint
 @app.get("/")
