@@ -34,7 +34,7 @@ function CropPredictor() {
         }),
       });
 
-      const data = await res.json();
+      const data = await response.json();
       if (data.predicted_yield !== undefined) {
         setResult(`🌾 Predicted Yield: ${data.predicted_yield} tons/ha`);
       } else {
