@@ -1,4 +1,4 @@
-import ChatBox from "./components/ChatBox";
+import ChatBox from "./components/chatbox";
 import CropPredictor from "./components/CropPredictor";
 import WeatherPredictor from "./components/WeatherPredictor"; 
 import WeatherForecast from "./components/WeatherForecast";
