@@ -1,17 +1,24 @@
-import ChatBox from "./components/chatbox";
+import ChatBox from "./components/ChatBox";
 import CropPredictor from "./components/CropPredictor";
+import WeatherPredictor from "./components/WeatherPredictor"; 
+import WeatherForecast from "./components/WeatherForecast";
 
 function App() {
   return (
-    <div className="min-h-screen bg-green-50 flex flex-col items-center justify-center p-4 space-y-6">
-      <h1 className="text-3xl font-bold text-green-700">🌾 Agri Assistant</h1>
+    <div className="min-h-screen bg-green-50 px-4 py-6">
+      <h1 className="text-3xl font-bold text-center mb-6">🌿 Agri Assistant</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
-        <div className="col-span-1">
+      <div className="flex flex-col md:flex-row gap-6 justify-center items-start max-w-7xl mx-auto">
+        {/* Chat Assistant */}
+        <div className="flex-1">
           <ChatBox />
         </div>
-        <div className="col-span-1">
+
+        {/* Crop Predictor + Weather below it */}
+        <div className="flex flex-col gap-6 w-full md:w-[400px]">
           <CropPredictor />
+          <WeatherPredictor />
+          <WeatherForecast />
         </div>
       </div>
     </div>

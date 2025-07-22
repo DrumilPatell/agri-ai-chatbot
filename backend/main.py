@@ -9,39 +9,30 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configure Gemini API key
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Load ML model and encoders
 model = pickle.load(open("crop_yield_model.pkl", "rb"))
 crop_encoder = pickle.load(open("crop_encoder.pkl", "rb"))
 fertilizer_encoder = pickle.load(open("fert_encoder.pkl", "rb"))
 
-# Initialize FastAPI app
 app = FastAPI()
 
-# Allow frontend access
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",  # for local dev
-        "https://agri-ai-chatbot.vercel.app",  # ✅ for production
+        "http://localhost:5173", 
+        "https://agri-ai-chatbot.vercel.app", 
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-# Health check endpoint
 @app.get("/")
 async def root():
     return {"message": "Agri chatbot API is running."}
 
 
-# -----------------------------
-# 1. Chatbot Endpoint (Gemini)
-# -----------------------------
 class ChatRequest(BaseModel):
     message: str
 
@@ -56,10 +47,6 @@ async def chat(chat_req: ChatRequest):
         reply = f"❌ Gemini API Error: {str(e)}"
     return {"reply": reply}
 
-
-# -----------------------------
-# 2. Crop Yield Prediction
-# -----------------------------
 class PredictionInput(BaseModel):
     crop: str
     rainfall: float
