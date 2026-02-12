@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))  # type: ignore
 
 model = pickle.load(open("crop_yield_model.pkl", "rb"))
 crop_encoder = pickle.load(open("crop_encoder.pkl", "rb"))
@@ -40,7 +40,7 @@ class ChatRequest(BaseModel):
 async def chat(chat_req: ChatRequest):
     user_msg = chat_req.message
     try:
-        model_gemini = genai.GenerativeModel("gemini-2.0-flash")
+        model_gemini = genai.GenerativeModel("gemini-2.0-flash")  # type: ignore
         response = model_gemini.generate_content(user_msg)
         reply = response.text.strip() if response.text else "🤖 Gemini didn't return a response."
     except Exception as e:
